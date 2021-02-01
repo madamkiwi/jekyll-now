@@ -1,8 +1,8 @@
-Some lessons I've learnt as a team lead of the Pivotal Web Service team (PWS)
+Some things I've learned as a team lead of the Pivotal Web Service team (PWS)
 
 PWS is a subscription-based, multi-tenant, Platform-as-a-Serivce Cloud Foundry deployment on AWS.  It comes with components such as Healthwatch, mysql, concourse, service brokers, logsearch, and wavefront nozzle and proxy.  The problem that we are trying to solve is improving automation, monitoring reliability at scale, and creating a feedback loop to R&D.
 
-Our platform supports 17k App instances, 5k active orgs, 384k active users. This is done using 240 Diego cells, 20 Cloud Controller API instances, 12 router instances, 100 subnets, 650 dedicated MySql service instances, 140 on-demand Redis service instances, for a total of 1440 VMs.  The throughputs are 102k requests/min on the router, 3k requests/min on CAPI, and 9.5k requests/min on UAA. Wavefront metrics ingestion rate is about 32k points/sec.
+We were able to support 17k App instances, 5k active orgs, 384k active users using 240 Diego cells, 20 Cloud Controller API instances, 12 router instances, 100 subnets, 650 dedicated MySql service instances, 140 on-demand Redis service instances, for a total of 1440 VMs.  The throughputs are 102k requests/min on the router, 3k requests/min on CAPI, and 9.5k requests/min on UAA. Wavefront metrics ingestion rate is about 32k points/sec.
 
 Some of the best practices that we've developed as a team is grouping Diego cells into cellblocks, this allows deploying specific features to a subset of the cell and allow easy roll back if they cause a problem.  Compared to the release engineering team, where VMs are spinned up from scratch to test fresh install or upgrades, our deployment of long running VMs is more similar to the enterprise-level customers, and can catch different type of issues.
 
